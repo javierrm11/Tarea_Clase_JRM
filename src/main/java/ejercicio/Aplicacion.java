@@ -1,6 +1,7 @@
 package ejercicio;
 
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Scanner;
@@ -43,6 +44,26 @@ public class Aplicacion {
             throw new RuntimeException(e);
         }
 
+
+    }
+    public void mostrarDietasDeInformatica() throws SQLException {
+        System.out.println("Vamos a mostrar todas las Dietas de Informatica mayores de 30€");
+
+        String sentencia = "SELECT * FROM Dieta Where departamento = 'Informatica' And cantidad > 30";
+        try {
+            ResultSet rs = stm.executeQuery(sentencia);
+            while (rs.next()) {
+                String id = rs.getString("id");
+                String empleado = rs.getString("empleado");
+                String departamento = rs.getString("departamento");
+                String cantidad = rs.getString("cantidad");
+                String concepto = rs.getString("concepto");
+
+                System.out.println("ID: "+ id + " | Empleado: "+ empleado + " | Departamento: "+ departamento + " | Cantidad: "+ cantidad + " | Concepto: "+ concepto);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
 
     }
 
