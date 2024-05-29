@@ -67,4 +67,16 @@ public class Aplicacion {
 
     }
 
+    public void incrementarPrecioVentas() throws SQLException {
+        System.out.println("Vamos a proceder a subir un 10% el precio de las Dietas de Ventas");
+
+        String sentencia = "UPDATE Dieta SET cantidad = cantidad * 1.10 WHERE departamento = 'Ventas'";
+        try {
+            stm.executeUpdate(sentencia);
+            System.out.println("Se ha ejecutado Correctamente");
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 }

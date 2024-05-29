@@ -9,8 +9,9 @@ public class Main {
 
         Aplicacion ap = new Aplicacion(cn);
 
-        ap.agregaDieta();
 
         ap.mostrarDietasDeInformatica();
+
+        ap.incrementarPrecioVentas();
     }
 }
